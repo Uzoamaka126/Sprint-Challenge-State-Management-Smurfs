@@ -4,34 +4,34 @@ import * as actions from '../state/actionCreators';
 import { useDispatch } from 'react-redux';
 
 const initialFormState = {
-    // show: false,
     name: '',
     age: '',
     height: '',
     id: null
 };
 
-export function AddSmurfForm(props) {
+export function AddSmurfForm({ postForm, onInputChange, }) {
+    const dispatch = useDispatch();
     const [form, setForm] = useState(initialFormState);
     const [smurf, setSmurf] = useState({});
 
-    useEffect(() => {
-        dispatch(actions.postForm(smurf), [smurf])
-    })
+    // useEffect(() => {
+    //     dispatch(actions.postForm(smurf), [smurf])
+    // })
     const handleChange = (event) => {
-        // event.PreventDefault();
         setForm({...form, [event.target.name]: event.target.value})
+        // dispatch(actions.onInputChange(event.target));
     }
 
     const handleSubmit = (event) => {
-        event.target.preventDefault();
-        setSmurf(form);
+        event.preventDefault();
+        dispatch(actions.postForm(form));
         setForm(initialFormState);
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h3>Create your own Smurf Here</h3>
                 <div className="form-row">
                     <div className="input-group">
@@ -46,7 +46,7 @@ export function AddSmurfForm(props) {
                         <input name="height"value={form.height} onChange={handleChange} />
                     </div>
                     <div className="input-group">
-                        <button onSubmit={handleSubmit}>Create Smurf</button>
+                        <button onClick={() => {}}>Create Smurf</button>
                     </div>
                 </div>
             </form>

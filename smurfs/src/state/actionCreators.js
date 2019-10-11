@@ -1,23 +1,7 @@
 import Axios from 'axios';
 import * as types from './actionTypes';
 
-const smurfsApi = 'http://localhost:3333';
-
-// export const postForm = (smurf) => dispatch => {
-//     Axios
-//         .post(`${smurfsApi}/smurfs`, data)
-//         .then(res => {
-//             dispatch({ type: types.ADD_SMURFS, });    
-//         })
-//         .catch(err => {
-//             dispatch({ type: types.ADD_SMURFS_FAILURE, payload: err.message })
-//         })
-//         dispatch({ type: types.RESET });
-//     // return {
-//     //     type: types.ADD_SMURFS,
-//     //     payload: smurf,
-//     // }
-// };
+Axios.defaults.baseURL = 'http://localhost:3333';
 
 // export function onInputChange(event, item) {
 //     event.preventDefault();
@@ -30,16 +14,31 @@ const smurfsApi = 'http://localhost:3333';
 //     });
 // }
 
+export const postForm = (smurf) => dispatch => {
+    Axios
+        .post('/smurfs', smurf)
+        .then(res => {
+            dispatch({ type: types.GET_SMURFS, payload: res.data});    
+        })
+        .catch(err => {
+            dispatch({ type: types.GET_SMURFS_FAILURE, payload: err.message })
+        })
+        // dispatch({ type: types.RESET });
+    // return {
+    //     type: types.ADD_SMURFS,
+    //     payload: smurf,
+    // }
+};
+
 export const getAllSmurfs = () => dispatch => {
-    dispatch({ type: types.ADD_SMURFS});
+    // dispatch({ type: types.GET_SMURFS});
 
     Axios
-        .get(`${smurfsApi}/smurfs`)
+        .get('/smurfs')
         .then(res => 
-            dispatch({ type: types.ADD_SMURFS_SUCCESS, payload: res.data})
+            dispatch({ type: types.GET_SMURFS_SUCCESS, payload: res.data})
         )
         .catch(err => 
-            dispatch({ type: types.ADD_SMURFS_FAILURE, payload: err.message})
+            dispatch({ type: types.GET_SMURFS_FAILURE, payload: err.message})
         )
 }
-// export function add

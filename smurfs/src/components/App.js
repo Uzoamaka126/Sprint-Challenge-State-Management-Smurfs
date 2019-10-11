@@ -11,8 +11,6 @@ export function App({ state, handleSubmit, onInputChange, getAllSmurfs }) {
       <div className="App">
         <AddSmurfForm />
         <SmurfsList />
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
       </div>
     );
 }
@@ -23,4 +21,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapToProps, actions)(App);
+export default connect(mapStateToProps, actions)(App);
