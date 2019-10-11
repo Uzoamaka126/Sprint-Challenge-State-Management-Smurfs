@@ -9,6 +9,8 @@ import "./index.css";
 import App from "./components/App";
 
 const bigReducer = combineReducers({
+    form: reducers.formReducer,
+    smurfs: reducers.smurfReducer,
 
 });
 

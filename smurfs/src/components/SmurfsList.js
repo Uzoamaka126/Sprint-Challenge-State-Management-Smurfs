@@ -4,6 +4,11 @@ import * as actions from '../state/actionCreators';
 import SingleSmurf from './SingleSmurf'
 
 export function SmurfsList(props) {
+    const { smurfs } = useSelector( state => state);
+    const [getAllSmurfs]
+    // useEffect(() => {
+
+    // })
     return (
         <div>
             <ul>
