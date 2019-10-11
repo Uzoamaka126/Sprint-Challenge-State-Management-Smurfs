@@ -44,8 +44,23 @@ form {
   font-size: 16px;;
 }
 form button {
-  background: #3F0E40;
+  background: #456bd9;
   color: #fff;
   min-width: 80px;
   padding: 14px 16px;
+  border: 1px solid transparent;
+  outline: none;
+}
+.smurf-card-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.card {
+  width: 20%;
+  background: #456bd9;
+  color: #fff;
+  min-height: 130px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }

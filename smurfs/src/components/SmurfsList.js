@@ -13,7 +13,7 @@ const SmurfsList = () => {
     }, [])
     return (
         <div>
-            <ul>
+            <ul className="smurf-card-list">
                {
                    smurfs.map((smurf) => (
                     <SingleSmurf 
